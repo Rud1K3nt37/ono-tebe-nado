@@ -1,6 +1,6 @@
 .header {
   width: 1052px;
-  height: 105px;
+  min-height: 105px; /*Исправил, теперь контейнер при добавлении контента будет растягиваться по высоте*/
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -16,7 +16,7 @@
   display: flex;
   list-style: circle;
   white-space: nowrap;
-  gap: 0 32px;
+  gap: 32px;
 }
 
 .header__links-list-item {
@@ -68,34 +68,34 @@
 
 .cover {
   width: 100%;
-  height: 757px;
-  margin-top: 96px;
   background-image: url(../images/cover.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
+  position: relative;
+  top: 96px; 
+  padding-bottom: 656px;
 }
 
 .overlay {
   width: 100%;
   height: 100%;
   background-color: rgb(0 0 0 / .6);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  position: absolute;
+  z-index: 1;
 }
 
 .cover__title {
-  width: 1000px;
-  height: 355px;
-  color: #fff;
+  max-width: 1000px; /*Исправил.Добавил значение для корректного отображение текста*/
+  width: 100%;
+  min-height: 355px; /*исправил.Убрал ограничение*/
+  color: white;
   font-size: 100px;
   font-weight: 700;
   text-transform: uppercase;
-  margin: 165px auto 0;
+  position: absolute;
+  inset: 165px 0 0 50px;
+  z-index: 2;
 }
 
 .aligned-text {
@@ -103,7 +103,6 @@
   line-height: 1.15;
   text-align: left;
   display: block;
-
 }
 
 .aligned-text_center {
@@ -135,21 +134,17 @@
 }
 
 .cover__description {
-  /* width: 972px;
-  position: absolute;
-  inset: 975px 220px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center; */
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 0 50px 51px 78px;
+  position: relative;
+  top: 655px;
+  z-index: 2;
 }
 
 .cover__description-text {
-  font-family: Raleway, sans-serif;
-  color: #fff;
+  color: white;
   font-size: 22px;
   font-weight: 400;
   line-height: 28px;
@@ -162,14 +157,12 @@
 }
 
 .bet-button {
-  /* box-sizing: border-box; */
-  font-family: Raleway;
   width: 256px;
   height: 51px;
-  border: 1px solid #fff;
+  border: 1px solid currentColor; /*Сделал лучше на удобный способ*/
   background-color: transparent;
   font-size: 22px;
-  color: #fff;
+  color: white;
   text-transform: uppercase;
   font-weight: 500;
 }
@@ -177,15 +170,15 @@
 .lots {
   box-sizing: border-box;
   max-width: 1052px;
-  height: 692px;
-  margin: 179px 24px 0;
+  min-height: 692px; /*Исправил*/
+  margin: 275px 24px 0;
 }
 
 .lots__heading {
   font-size: 40px;
   font-weight: 700;
   text-transform: uppercase;
-  margin: 0 0 0 40px;
+  margin-left: 40px;
 }
 
 .lots__card-list {
@@ -199,7 +192,6 @@
   display: flex;
   flex-grow: 1;
   list-style: none;
-  margin: 27px 0 0;
 }
 
 .card-link {
@@ -210,59 +202,72 @@
 .card {
   width: 100%;
   height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  position: relative;
+  top: 27px;
 }
 
 .card_type_film {
-  background-image: url(/images/card-lot-01.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top;
+  background-image: url(../images/card-lot-01.jpg); /*Убрал повторяющиеся стили в card*/
 }
 
 .card_type_book {
-  background-image: url(/images/card-lot-02.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top;
+  background-image: url(../images/card-lot-02.jpg);
 }
 
 .card_type_picture {
-  background-image: url(/images/card-lot-03.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top;
+  background-image: url(../images/card-lot-03.jpg);
 }
 
 .card__title {
-  color: #fff;
+  color: white;
   font-size: 22px;
   font-weight: 700;
   line-height: 26.4px;
   text-decoration-line: underline;
   text-underline-position: under;
   text-transform: uppercase;
-  margin: 51px 40px 0;
+  margin: 0 40px;
+  position: relative;
+  top: 51px;
+  z-index: 2;
   
 }
 
 .card__text {
-  color: #fff;
+  color: white;
   font-size: 20px;
   font-weight: 400;
   line-height: 24px;
-  margin: 0 40px 48px;
+  margin: 0 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.card__text-first {
+  top: 290px;
+}
+
+.card__text-second {
+  top: 51px;
+}
+
+.card__text-last {
+  top: 145px;
 }
 
 .lots__look-more-link {
   display: block;
-  font-size:20px;
+  font-size: 20px;
   font-weight: 400;
-  margin: 30px 0 0 40px;
+  margin: 57px 0 0 40px;
 }
 
 .about {
   width: 1052px;
-  height: 595px;
+  min-height: 595px; /*Исправил*/
   margin: 148px 24px 0;
 }
 
@@ -275,7 +280,7 @@
 .about__logo {
   width: 240px;
   height: 240px;
-  border-radius: 120px;
+  border-radius: 50%; /*Исправил, для скругления углов квадрата указал в процентах*/
   background-color: black;
   display: flex;
   justify-self: center;
@@ -303,6 +308,9 @@
   letter-spacing: 0.2px;
   grid-column: 2/2;
   margin: 8px 0 0 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .footer {
@@ -333,8 +341,6 @@
 }
 
 .footer__menu-link_active {
-  font-size: 18px;
-  font-weight: 400;
   text-decoration: none;
 }
 
@@ -347,3 +353,5 @@
 .footer__social-icon {
   width: 48px;
 }
+
+/* Исправил пути к картинкам, теперь должно правильно отображать */
