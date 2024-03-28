@@ -1,6 +1,6 @@
 .header {
   width: 1052px;
-  min-height: 105px; /*Исправил, теперь контейнер при добавлении контента будет растягиваться по высоте*/
+  min-height: 105px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -22,21 +22,12 @@
 .header__links-list-item {
   font-size: 18px;
   font-weight: 400;
+  line-height: 21.13px;
 }
 
 .header__links-list-item_no-bullit {
   list-style: none;
   margin-left: 26.52px;
-}
-
-.header__link_active {
-  text-decoration: none;
-  letter-spacing: 0;
-}
-
-.header__link {
-  text-underline-position: under;
-  letter-spacing: 0.18px;
 }
 
 .header__logo {
@@ -57,24 +48,31 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.header__address {
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
-  line-height: 1.35;
+  line-height: 24.3px;
+}
+
+.address__link_active {
+  text-decoration: none;
+}
+
+.address__link {
+  text-underline-position: under;
 }
 
 .cover {
   width: 100%;
+  min-height: 757px;
   background-image: url(../images/cover.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
   position: relative;
-  top: 96px;
-  padding-bottom: 656px;
+  top: 0;
+  left: 0;
+  margin-top: 96px;
 }
 
 .overlay {
@@ -82,13 +80,15 @@
   height: 100%;
   background-color: rgb(0 0 0 / .6);
   position: absolute;
+  top: 0;
+  left: 0;
   z-index: 1;
 }
 
 .cover__title {
-  max-width: 1000px; /*Исправил.Добавил значение для корректного отображение текста*/
+  max-width: 1000px;
   width: 100%;
-  min-height: 355px; /*исправил.Убрал ограничение*/
+  height: 100%;
   color: white;
   font-size: 100px;
   font-weight: 700;
@@ -134,13 +134,15 @@
 }
 
 .cover__description {
+  width: 972px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 50px 51px 78px;
-  position: relative;
-  top: 655px;
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: 2;
+  margin: 655px 50px 51px 78px;
 }
 
 .cover__description-text {
@@ -159,7 +161,7 @@
 .bet-button {
   width: 256px;
   height: 51px;
-  border: 1px solid currentColor; /*Сделал лучше на удобный способ*/
+  border: 1px solid currentColor;
   background-color: transparent;
   font-size: 22px;
   color: white;
@@ -170,8 +172,9 @@
 .lots {
   box-sizing: border-box;
   max-width: 1052px;
-  min-height: 692px; /*Исправил*/
-  margin: 275px 24px 0;
+  min-height: 100%;
+  margin: 179px 24px 0;
+  
 }
 
 .lots__heading {
@@ -184,12 +187,14 @@
 .lots__card-list {
   display: flex;
   gap: 25px;
+  flex-wrap: wrap;
 }
 
 .lots__card-list-item {
   max-width: 334px;
   min-height: 563px;
   display: flex;
+  flex-basis: 334px;
   flex-grow: 1;
   list-style: none;
 }
@@ -200,17 +205,21 @@
 }
 
 .card {
+  display: flex;
+  flex-direction: column-reverse;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
   position: relative;
-  top: 27px;
+  top: 0;
+  left: 0;
+  margin-top: 27px;
 }
 
 .card_type_film {
-  background-image: url(../images/card-lot-01.jpg); /*Убрал повторяющиеся стили в card*/
+  background-image: url(../images/card-lot-01.jpg);
 }
 
 .card_type_book {
@@ -229,11 +238,11 @@
   text-decoration-line: underline;
   text-underline-position: under;
   text-transform: uppercase;
-  margin: 0 40px;
-  position: relative;
-  top: 51px;
+  margin: 51px 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: 2;
-  
 }
 
 .card__text {
@@ -241,21 +250,11 @@
   font-size: 20px;
   font-weight: 400;
   line-height: 24px;
-  margin: 0 40px;
+  margin: 48px 40px;
   position: relative;
+  top: 0;
+  left: 0;
   z-index: 2;
-}
-
-.card__text-first {
-  top: 290px;
-}
-
-.card__text-second {
-  top: 51px;
-}
-
-.card__text-last {
-  top: 145px;
 }
 
 .lots__look-more-link {
@@ -267,7 +266,7 @@
 
 .about {
   width: 1052px;
-  min-height: 595px; /*Исправил*/
+  height: 100%;
   margin: 148px 24px 0;
 }
 
@@ -280,7 +279,7 @@
 .about__logo {
   width: 240px;
   height: 240px;
-  border-radius: 50%; /*Исправил, для скругления углов квадрата указал в процентах*/
+  border-radius: 50%;
   background-color: black;
   display: flex;
   justify-self: center;
@@ -353,5 +352,3 @@
 .footer__social-icon {
   width: 48px;
 }
-
-/* Исправил пути к картинкам, теперь должно правильно отображать */
